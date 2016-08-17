@@ -9,7 +9,7 @@ package interfaces;
  *
  * @author Roberto Cruz Leija
  */
-public interface AlgoritmoOrdenamiento {
+public interface AlgoritmoOrdenamiento  {
   // definir de una forma abstracta los 
   // comportamientos de un algoritmo de ordenamiento 
     public void obtenerDatos(double[] datos);

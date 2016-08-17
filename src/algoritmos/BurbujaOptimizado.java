@@ -10,7 +10,7 @@ import interfaces.AlgoritmoOrdenamiento;
  *
  * @author É
  */
-public class BurbujaOptimizado implements AlgoritmoOrdenamiento{
+public class BurbujaOptimizado implements AlgoritmoOrdenamiento,Runnable{
     
     private double[] datos;
     private int numIntercambios, numVerificaciones;
@@ -90,5 +90,13 @@ public class BurbujaOptimizado implements AlgoritmoOrdenamiento{
     public double getTiempo_e() {
         return tiempo_e;
     }
-    
+
+    @Override
+    public void run() {
+      ordenarDatos();
+    }
+    @Override
+    public String toString() {
+        return ""+this.tiempo_e; //To change body of generated methods, choose Tools | Templates.
+    }
 }

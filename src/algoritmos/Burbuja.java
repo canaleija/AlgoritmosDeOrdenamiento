@@ -11,7 +11,7 @@ import interfaces.AlgoritmoOrdenamiento;
  *
  * @author Roberto Cruz Leija
  */
-public class Burbuja implements AlgoritmoOrdenamiento{
+public class Burbuja implements AlgoritmoOrdenamiento,Runnable{
 
     private double[] datos;
     private int noVer,noInter;
@@ -92,6 +92,17 @@ public class Burbuja implements AlgoritmoOrdenamiento{
      */
     public double getTiempo_e() {
         return tiempo_e;
+    }
+
+    @Override
+    public void run() {
+       // Aqui tiene que ordenar 
+       ordenarDatos();
+    }
+
+    @Override
+    public String toString() {
+        return ""+this.tiempo_e; //To change body of generated methods, choose Tools | Templates.
     }
     
 }
