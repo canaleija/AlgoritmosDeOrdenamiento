@@ -23,41 +23,49 @@ public class Carrera {
     private int numAlgoritmos,n;
     
 
-    public Carrera(int numAlgoritmos, int n) {
-        this.numAlgoritmos = numAlgoritmos;
+    public Carrera(int n) {
+      //  this.numAlgoritmos = numAlgoritmos;
         this.tiempos = new double[numAlgoritmos];
         this.datos = new double[n];
         this.algoritmos = new LinkedList<>();
-        this.n=n;
+       this.n=n;
     }
     
-    public void ejecutaPrueba (){
+    public void agregaAlgoritmo (AlgoritmoOrdenamiento algoritmo){
+    
+        if (this.algoritmos != null){
+          this.algoritmos.add(algoritmo);
+        }
+    
+    }
+    
+    public void ejecutaPrueba () throws InterruptedException{
         //vamos a crear 2 algoritmos
-        Burbuja a1 = new Burbuja();
-        BurbujaOptimizado a2 = new BurbujaOptimizado();
-        
-        // agregar a la linked
-        this.algoritmos.add(a1);
-        this.algoritmos.add(a2);
+//        Burbuja a1 = new Burbuja();
+//        BurbujaOptimizado a2 = new BurbujaOptimizado();
+//        
+//        // agregar a la linked
+//        this.algoritmos.add(a1);
+//        this.algoritmos.add(a2);
         
         // datos creados previamente 
         this.datos = Herramientas.generaArregloAleatorio(this.n);
         // crar un ciclo para ejecutar los alogoritmos y medir sus tiempos
-        for (int x=0; x < this.numAlgoritmos;x++){
+        for (int x=0; x < this.algoritmos.size();x++){
          // mandar los datos a cada uno de los algoritmos
          double[] aux = this.datos.clone();
          this.algoritmos.get(x).obtenerDatos(aux);
          Thread hiloAux = new Thread((Runnable)this.algoritmos.get(x));
          // ejecutar los alglritmos en hilos independientes 
          hiloAux.start();
+         hiloAux.join();
                 
         }
         // imprimir los tiempos 
         for(AlgoritmoOrdenamiento a : this.algoritmos){
         System.out.println(a.toString()); 
         }
-        
-    
+           
     }
     
     

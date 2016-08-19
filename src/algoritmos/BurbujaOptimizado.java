@@ -94,9 +94,10 @@ public class BurbujaOptimizado implements AlgoritmoOrdenamiento,Runnable{
     @Override
     public void run() {
       ordenarDatos();
+      
     }
     @Override
     public String toString() {
-        return ""+this.tiempo_e; //To change body of generated methods, choose Tools | Templates.
+        return "Burbuja Optimizado: "+this.tiempo_e; //To change body of generated methods, choose Tools | Templates.
     }
 }

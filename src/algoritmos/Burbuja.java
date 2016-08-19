@@ -102,7 +102,7 @@ public class Burbuja implements AlgoritmoOrdenamiento,Runnable{
 
     @Override
     public String toString() {
-        return ""+this.tiempo_e; //To change body of generated methods, choose Tools | Templates.
+        return "Burbuja: "+this.tiempo_e; //To change body of generated methods, choose Tools | Templates.
     }
     
 }
