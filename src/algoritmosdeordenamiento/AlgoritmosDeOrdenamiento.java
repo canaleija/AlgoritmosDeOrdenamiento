@@ -8,8 +8,11 @@ package algoritmosdeordenamiento;
 import Algoritmos.BurbujaOptimizado;
 import algoritmos.Burbuja;
 import algoritmos.SelectionSort;
+import interfaces.AlgoritmoOrdenamiento;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.crypto.SealedObject;
 
 /**
  *
@@ -20,12 +23,46 @@ public class AlgoritmosDeOrdenamiento {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+        
+        
+       
+        
+        // generar un numero definido de carreras 
+        int numCarreras = 500;
+        ArrayList<Double[]> tiempos = new ArrayList<>();
+        tiempos.add(new Double[numCarreras]);
+        tiempos.add(new Double[numCarreras]);
+        tiempos.add(new Double[numCarreras]);
+        
+        for (int x= 0; x < numCarreras;x++){
+            
+        ArrayList<AlgoritmoOrdenamiento> algoritmos = new ArrayList<>();
+        algoritmos.add(new Burbuja());
+        algoritmos.add(new BurbujaOptimizado());
+        algoritmos.add(new SelectionSort());
+           // 
+           Carrera carreraActual = new Carrera(5*x);
+           // agregamos los algoritmos 
+           for (AlgoritmoOrdenamiento a: algoritmos){
+           carreraActual.agregaAlgoritmo(a);
+           }
+           carreraActual.ejecutaPrueba();
+           // agregamos los tiempos
+           for (int y = 0; y < algoritmos.size();y++ ){
+             tiempos.get(y)[x]= algoritmos.get(y).getTiempo_e();
+           }
+        }
+        
+        // la grafica 
         Grafica g1 = new Grafica("GRafica", "x", "y");
-        g1.agregarSerie(new double[]{4.0,5.1,7.8,8.9}, "Algoritmo1");
-        g1.agregarSerie(new double[]{4.6,5.1,7.8,10.9}, "Algoritmo2");
-        g1.agregarSerie(new double[]{5.3,5.1,7.8,56.9}, "Algoritmo3");
+        g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(0)), "Algoritmo1");
+        g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(1)), "Algoritmo2");
+        g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(2)), "Algoritmo3");
         g1.creaYmuestraGrafica();
+        
+        
+        
 //        
 //       
 //        

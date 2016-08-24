@@ -59,12 +59,9 @@ public class Carrera {
          // ejecutar los alglritmos en hilos independientes 
          hiloAux.start();
          hiloAux.join();
-                
+         
         }
-        // imprimir los tiempos 
-        for(AlgoritmoOrdenamiento a : this.algoritmos){
-        System.out.println(a.toString()); 
-        }
+      
            
     }
     

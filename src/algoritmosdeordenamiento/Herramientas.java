@@ -24,4 +24,13 @@ public class Herramientas {
         return arreglo;
     }
     
+    public static double[] convertirArreglo(Double[] arreglo){
+      double[]aux = new double[arreglo.length];
+      for (int x=0; x < arreglo.length;x++)
+          aux[x]=arreglo[x];
+      
+      return aux;
+          
+    }
+    
 }

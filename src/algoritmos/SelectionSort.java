@@ -88,6 +88,7 @@ public class SelectionSort implements AlgoritmoOrdenamiento,Runnable{
     /**
      * @return the tiempo_e
      */
+    @Override
     public double getTiempo_e() {
         return tiempo_e;
     }
