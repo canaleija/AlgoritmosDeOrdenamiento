@@ -7,6 +7,7 @@ package algoritmosdeordenamiento;
 
 import Algoritmos.BurbujaOptimizado;
 import algoritmos.Burbuja;
+import algoritmos.InsertSort;
 import algoritmos.SelectionSort;
 import interfaces.AlgoritmoOrdenamiento;
 import java.util.ArrayList;
@@ -29,8 +30,9 @@ public class AlgoritmosDeOrdenamiento {
        
         
         // generar un numero definido de carreras 
-        int numCarreras = 500;
+        int numCarreras = 1000;
         ArrayList<Double[]> tiempos = new ArrayList<>();
+        tiempos.add(new Double[numCarreras]);
         tiempos.add(new Double[numCarreras]);
         tiempos.add(new Double[numCarreras]);
         tiempos.add(new Double[numCarreras]);
@@ -41,6 +43,7 @@ public class AlgoritmosDeOrdenamiento {
         algoritmos.add(new Burbuja());
         algoritmos.add(new BurbujaOptimizado());
         algoritmos.add(new SelectionSort());
+        algoritmos.add(new InsertSort());
            // 
            Carrera carreraActual = new Carrera(5*x);
            // agregamos los algoritmos 
@@ -59,6 +62,8 @@ public class AlgoritmosDeOrdenamiento {
         g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(0)), "Algoritmo1");
         g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(1)), "Algoritmo2");
         g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(2)), "Algoritmo3");
+        g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(3)), "Algoritmo4");
+        
         g1.creaYmuestraGrafica();
         
         
