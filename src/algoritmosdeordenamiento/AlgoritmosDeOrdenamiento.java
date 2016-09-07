@@ -8,6 +8,7 @@ package algoritmosdeordenamiento;
 import Algoritmos.BurbujaOptimizado;
 import algoritmos.Burbuja;
 import algoritmos.InsertSort;
+import algoritmos.MergeSort;
 import algoritmos.SelectionSort;
 import interfaces.AlgoritmoOrdenamiento;
 import java.util.ArrayList;
@@ -26,16 +27,26 @@ public class AlgoritmosDeOrdenamiento {
      */
     public static void main(String[] args) throws InterruptedException {
         
+//        double arreglo[] = Herramientas.generaArregloAleatorio(10);
+//        MergeSort ms = new MergeSort();
+//        ms.obtenerDatos(arreglo);
+//        Thread hilo = new Thread(ms);
+//        hilo.start();
+//        hilo.join();
+//        System.out.println();
+            
         
        
         
         // generar un numero definido de carreras 
-        int numCarreras = 1000;
+        int numCarreras = 100;
         ArrayList<Double[]> tiempos = new ArrayList<>();
         tiempos.add(new Double[numCarreras]);
         tiempos.add(new Double[numCarreras]);
         tiempos.add(new Double[numCarreras]);
         tiempos.add(new Double[numCarreras]);
+        tiempos.add(new Double[numCarreras]);
+        
         
         for (int x= 0; x < numCarreras;x++){
             
@@ -44,6 +55,7 @@ public class AlgoritmosDeOrdenamiento {
         algoritmos.add(new BurbujaOptimizado());
         algoritmos.add(new SelectionSort());
         algoritmos.add(new InsertSort());
+        algoritmos.add(new MergeSort());
            // 
            Carrera carreraActual = new Carrera(5*x);
            // agregamos los algoritmos 
@@ -63,6 +75,7 @@ public class AlgoritmosDeOrdenamiento {
         g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(1)), "Algoritmo2");
         g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(2)), "Algoritmo3");
         g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(3)), "Algoritmo4");
+        g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(4)), "Algoritmo5");
         
         g1.creaYmuestraGrafica();
         
