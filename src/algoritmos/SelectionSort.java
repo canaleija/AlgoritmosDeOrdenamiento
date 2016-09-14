@@ -62,7 +62,7 @@ public class SelectionSort implements AlgoritmoOrdenamiento,Runnable{
        // calculamos el tiempo del sistema en milis   
        this.tiempo_f = System.currentTimeMillis();
        this.tiempo_e = (this.tiempo_f - this.tiempo_i)/1000;
-       System.out.println();
+     
     }
 
     @Override

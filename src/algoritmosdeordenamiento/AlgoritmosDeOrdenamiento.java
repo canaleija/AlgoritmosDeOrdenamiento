@@ -9,12 +9,10 @@ import Algoritmos.BurbujaOptimizado;
 import algoritmos.Burbuja;
 import algoritmos.InsertSort;
 import algoritmos.MergeSort;
+import algoritmos.OrdenamientoRapido;
 import algoritmos.SelectionSort;
 import interfaces.AlgoritmoOrdenamiento;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.crypto.SealedObject;
 
 /**
  *
@@ -39,23 +37,27 @@ public class AlgoritmosDeOrdenamiento {
        
         
         // generar un numero definido de carreras 
-        int numCarreras = 100;
+        int numCarreras = 3000;
         ArrayList<Double[]> tiempos = new ArrayList<>();
         tiempos.add(new Double[numCarreras]);
         tiempos.add(new Double[numCarreras]);
-        tiempos.add(new Double[numCarreras]);
-        tiempos.add(new Double[numCarreras]);
-        tiempos.add(new Double[numCarreras]);
+//        tiempos.add(new Double[numCarreras]);
+//        tiempos.add(new Double[numCarreras]);
+//        tiempos.add(new Double[numCarreras]);
+//        tiempos.add(new Double[numCarreras]);
         
         
         for (int x= 0; x < numCarreras;x++){
             
         ArrayList<AlgoritmoOrdenamiento> algoritmos = new ArrayList<>();
-        algoritmos.add(new Burbuja());
-        algoritmos.add(new BurbujaOptimizado());
-        algoritmos.add(new SelectionSort());
-        algoritmos.add(new InsertSort());
+//        algoritmos.add(new Burbuja());
+//        algoritmos.add(new BurbujaOptimizado());
+//        algoritmos.add(new SelectionSort());
+//        algoritmos.add(new InsertSort());
+ 
         algoritmos.add(new MergeSort());
+        algoritmos.add(new OrdenamientoRapido());
+       
            // 
            Carrera carreraActual = new Carrera(5*x);
            // agregamos los algoritmos 
@@ -71,12 +73,15 @@ public class AlgoritmosDeOrdenamiento {
         
         // la grafica 
         Grafica g1 = new Grafica("GRafica", "x", "y");
-        g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(0)), "Algoritmo1");
-        g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(1)), "Algoritmo2");
-        g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(2)), "Algoritmo3");
-        g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(3)), "Algoritmo4");
-        g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(4)), "Algoritmo5");
-        
+//        g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(0)), Burbuja.class.getSimpleName());
+//        g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(1)), BurbujaOptimizado.class.getSimpleName());
+//        g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(2)), SelectionSort.class.getSimpleName());
+//        g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(3)), InsertSort.class.getSimpleName());
+       
+     g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(0)), MergeSort.class.getSimpleName());
+      g1.agregarSerie(Herramientas.convertirArreglo(tiempos.get(1)), OrdenamientoRapido.class.getSimpleName());
+         
+       
         g1.creaYmuestraGrafica();
         
         
